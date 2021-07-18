@@ -13,15 +13,13 @@ let user = {};
 	await Promise.all([ //该方法用于将多个实例包装成一个新的实例, 可以简单理解为同时调用函数, 以进一步提高执行速度
 		GetCheckin(), 
 		//ListProduct() //查询商品函数
-
-		""
 	]);
 	//await ExchangeProduct(); //上面的查询都完成后, 则执行抢购
 	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
 })();
 
 function GetCheckin() {
-	console.log(`\ncode: ${cookie}`);
+	console.log(`\ncode: ${typeof cookie}`);
 	const checkinUrl = {
 		url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx',
 		headers: { //请求头
