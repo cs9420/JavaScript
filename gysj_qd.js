@@ -375,7 +375,9 @@ function Env(name, opts) {
       if (opts.body && opts.headers && !opts.headers['Content-Type']) {
         opts.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 		$.log('', `Content-Type: 自动生成了`)
-      }
+      } else {
+		  $.log('', `Content-Type: 未自动生成`)
+	  }
       if (opts.headers) delete opts.headers['Content-Length']
 
 	  $.log('', `Content-Type: ${opts.headers['Content-Type']}`)
