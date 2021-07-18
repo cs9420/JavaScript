@@ -1,7 +1,9 @@
 
-let cookie = $.getval("CookieGYSJ");
 
 var $ = new Env('国语视界签到');
+
+
+let cookie = $.getval("CookieGYSJ");
 
 // (async function() { // 立即运行的匿名异步函数
 // 	// 使用await关键字声明, 表示以同步方式执行异步函数, 可以简单理解为顺序执行
