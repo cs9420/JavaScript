@@ -22,7 +22,7 @@ function getSign() {
       Cookie: cookie,
     }
   }, function(error, response, data) {
-	  $.log('', `cookie： ${$.getval("cookie")}`)
+	  $.log('', `cookie： ${cookie}`)
     if (error && !data) {
       $.log(error);
       $.msg("国语视界", "签到请求失败 ‼️‼️", error)
