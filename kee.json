@@ -7,13 +7,24 @@
     "repo": "",
     "apps": [
         {
-            "id": "BiliManga",
-            "name": "哔哩漫画",
+            "id": "jiji",
+            "name": "几鸡签到",
             "keys": [
                 "CookieJJ"
             ],
             "descs_html": [
                 "<h4 align=\"center\">获取Cookie以及脚本配置请查看<a href=\"https://raw.githubusercontent.com/NobyDa/Script/master/Bilibili-DailyBonus/Manga.js\">脚本注释</a></h4>"
+            ],
+            "settings": [
+                {
+                    "id": "CookieJJ",
+                    "name": "CK列表",
+                    "val": "",
+                    "type": "textarea",
+                    "autoGrow": true,
+                    "rows": 8,
+                    "desc": "CK 列表 "
+                }
             ],
             "script": "https://raw.githubusercontent.com/NobyDa/Script/master/Bilibili-DailyBonus/Manga.js",
             "author": "@NobyDa",
