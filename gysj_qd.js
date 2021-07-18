@@ -21,7 +21,7 @@ function getSign() {
 	$.post({
     url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx',
     headers: {
-      Cookie: cookie,
+      Cookie: cookie
     }
   }, function(error, response, data) {
     if (error && !data) {
