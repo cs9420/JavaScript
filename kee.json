@@ -13,7 +13,7 @@
                 "CookieJJ"
             ],
             "descs_html": [
-                "<h4 align=\"center\">获取Cookie以及脚本配置请查看<a href=\"https://raw.githubusercontent.com/NobyDa/Script/master/Bilibili-DailyBonus/Manga.js\">脚本注释</a></h4>"
+                "<h4 align=\"center\">获取Cookie以及脚本配置请查看<a href=\"https://raw.githubusercontent.com/cs9420/JavaScript/main/jiji_qd.js\">脚本注释</a></h4>"
             ],
             "settings": [
                 {
@@ -26,19 +26,13 @@
                     "desc": "CK 列表 "
                 }
             ],
-            "script": "https://raw.githubusercontent.com/NobyDa/Script/master/Bilibili-DailyBonus/Manga.js",
-            "author": "@NobyDa",
-            "repo": "https://github.com/NobyDa/Script/blob/master/Bilibili-DailyBonus/Manga.js",
+            "script": "https://raw.githubusercontent.com/cs9420/JavaScript/main/jiji_qd.js",
+            "author": "@kee",
+            "repo": "https://github.com/cs9420/JavaScript/blob/main/jiji_qd.js",
             "icons": [
                 "https://raw.githubusercontent.com/NobyDa/mini/master/Alpha/manga.png",
                 "https://raw.githubusercontent.com/NobyDa/mini/master/Color/manga.png"
             ]
-        }
-    ],
-    "task": [
-        {
-            "config": "0 6 * * * https://raw.githubusercontent.com/cs9420/JavaScript/main/jiji_qd.js, tag=几鸡签到",
-            "addons": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/Js_Remote_Cookie.conf, tag=NobyDa Cookie获取"
         }
     ]
 }
