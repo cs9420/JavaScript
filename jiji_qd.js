@@ -19,6 +19,7 @@ let user = {};
 })();
 
 function GetCheckin() {
+	console.log(`\ncode: ${cookie}`);
 	const checkinUrl = {
 		url: 'https://j05.space/user/checkin',
 		headers: { //请求头
