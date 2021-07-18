@@ -3,7 +3,7 @@
 let $ = new nobyda();
 
 // 读取几鸡签到脚本所使用的Cookie
-let cookie = $.read('Cookie');
+let cookie = $.read('CookieJJ');
 
 // 预留的空对象, 便于函数之间读取数据
 let user = {};
