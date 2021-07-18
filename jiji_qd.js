@@ -98,7 +98,8 @@ function nobyda() {
 			if (typeof options == "string") options = {
 				url: options
 			}
-			console.log(`\ncode: ${options}`);
+			const body = JSON.parse(data);
+			console.log(`\ncode: ${body}`);
 			options["method"] = "POST"
 			$task.fetch(options).then(response => {
 				callback(null, adapterStatus(response), response.body)
