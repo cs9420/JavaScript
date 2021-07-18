@@ -1,5 +1,5 @@
 
-var $ = new Env('几鸡签到');
+var $ = new Env('苹果账号签到');
 
 let cookie = $.getval("CookiePGID");
 
@@ -17,7 +17,7 @@ getCheckin()
 
 function getCheckin() {
 	$.post({
-    url: 'https://www.52appleid.com/wp-admin/admin-ajax.php&action=user_qiandao',
+    url: 'https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao',
     headers: {
       Cookie: cookie,
     }
