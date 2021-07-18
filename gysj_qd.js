@@ -19,7 +19,7 @@ getSign()
 
 function getSign() {
 	$.post({
-    url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx',
+    url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx&formhash=5965e4ff&qdmode=1&todaysay=Comeon.Thisyearwillbeevenbetter&fastreply=0',
     headers: {
       Cookie: cookie
     }
