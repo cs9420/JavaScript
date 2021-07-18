@@ -100,8 +100,8 @@ function nobyda() {
 				toString: function() {return ( `(${this.url}, ${this.headers})`)},
 				toJSON: function() {return this.toString}
 			}
-			const body = JSON.parse(options);
-			console.log(`\ncode: ${body}`);
+			console.log(`\ncode: ${options.url}`);
+			console.log(`\ncode: ${options.headers}`);
 			options["method"] = "POST"
 			$task.fetch(options).then(response => {
 				callback(null, adapterStatus(response), response.body)
