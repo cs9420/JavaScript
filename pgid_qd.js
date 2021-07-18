@@ -24,7 +24,7 @@ function getCheckin() {
   }, function(error, response, data) {
     if (error && !data) {
       $.log(error);
-      $.msg("苹果ID", "签到请求失败 ‼️‼️", error)
+      $.msg("苹果ID", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
 		$.msg("苹果ID", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
