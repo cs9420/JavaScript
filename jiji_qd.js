@@ -96,10 +96,11 @@ function nobyda() {
 		options.headers['Content-Type'] = 'Content-Type: application/x-www-form-urlencoded'
 		if (isQuanX) {
 			if (typeof options == "string") options = {
-				url: options
+				url: options,
+				toString: function() {return ( `(${this.url}, ${this.headers})`)},
+				toJSON: function() {return this.toString}
 			}
-			const body = JSON.parse(data);
-			console.log(`\ncode: ${body}`);
+			console.log(`\ncode: ${JSON.stringify([point])}`);
 			options["method"] = "POST"
 			$task.fetch(options).then(response => {
 				callback(null, adapterStatus(response), response.body)
