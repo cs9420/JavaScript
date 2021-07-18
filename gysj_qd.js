@@ -22,6 +22,7 @@ function getSign() {
     url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx',
     headers: {
       Cookie: cookie,
+	  Content-Type: 'Content-Type: application/x-www-form-urlencoded'
     }
   }, function(error, response, data) {
     if (error && !data) {
@@ -368,14 +369,18 @@ function Env(name, opts) {
 
     post(opts, callback = () => {}) {
       const method = opts.method ? opts.method.toLocaleLowerCase() : 'post'
+
 	  $.log('', `method: ${method}`)
+
       // 如果指定了请求体, 但没指定`Content-Type`, 则自动生成
       if (opts.body && opts.headers && !opts.headers['Content-Type']) {
         opts.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       }
       if (opts.headers) delete opts.headers['Content-Length']
+
 	  $.log('', `Content-Type: ${opts.headers['Content-Type']}`)
 	  $.log('', `Cookie: ${opts.headers['Cookie']}`)
+
       if (this.isSurge() || this.isLoon()) {
         if (this.isSurge() && this.isNeedRewrite) {
           opts.headers = opts.headers || {}
