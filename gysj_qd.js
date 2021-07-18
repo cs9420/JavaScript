@@ -3,15 +3,17 @@ let cookie = "";
 
 var $ = new Env('国语视界签到');
 
-(async function() { // 立即运行的匿名异步函数
-	// 使用await关键字声明, 表示以同步方式执行异步函数, 可以简单理解为顺序执行
-	await Promise.all([ //该方法用于将多个实例包装成一个新的实例, 可以简单理解为同时调用函数, 以进一步提高执行速度
-		getSign(), 
-		//ListProduct() //查询商品函数
-	]);
-	//await ExchangeProduct(); //上面的查询都完成后, 则执行抢购
-	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
-})();
+// (async function() { // 立即运行的匿名异步函数
+// 	// 使用await关键字声明, 表示以同步方式执行异步函数, 可以简单理解为顺序执行
+// 	await Promise.all([ //该方法用于将多个实例包装成一个新的实例, 可以简单理解为同时调用函数, 以进一步提高执行速度
+// 		getSign(), 
+// 		//ListProduct() //查询商品函数
+// 	]);
+// 	//await ExchangeProduct(); //上面的查询都完成后, 则执行抢购
+// 	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
+// })();
+
+getSign()
 
 function getSign() {
 	$.get({
