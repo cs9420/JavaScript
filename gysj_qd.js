@@ -18,13 +18,12 @@ let cookie = $.getval("CookieGYSJ");
 getSign()
 
 function getSign() {
-	$.get({
+	$.post({
     url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx',
     headers: {
-      Cookie: '3rir_2132_lastact=1626593304 plugin.php ; 3rir_2132_sid=swu8OG; CNZZDATA1278839686=981472597-1626580490-https%3A%2F%2Fcnlang.org%2F|1626590826; 3rir_2132_checkpm=1; 3rir_2132_study_nge_extstyle_default=1; 3rir_2132_sendmail=1; 3rir_2132_lip=113.227.47.128,1626581422; 3rir_2132_tY2k6psQnCs1=1; UM_distinctid=17ab7c70bdf845-0cb4e53a55a6c6-2b6c4935-60c28-17ab7c70be0fea; 3rir_2132_nofavfid=1; 3rir_2132_study_nge_extstyle=1; 3rir_2132_auth=a44aaDBuRbTHhOM+rVuGnIzypN6El8iKGOxVS4jP5PQVPqCVD4DNIuafCzikaw97tEqI2AWUa9eJGKA+DfxIrnGV3g; 3rir_2132_lastcheckfeed=11883|1626580909; 3rir_2132_ulastactivity=2353nC8F1vS69l8O6o+H+pBHs2yeUF/rtwgWvtOQzcEKj5RJEs5h; 3rir_2132_lastvisit=1626565025; 3rir_2132_saltkey=kweF5Bf8',
+      Cookie: cookie,
     }
   }, function(error, response, data) {
-	  $.log('', `cookie:${cookie}`)
     if (error && !data) {
       $.log(error);
       $.msg("国语视界", "签到请求失败 ‼️‼️", error)
