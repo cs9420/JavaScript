@@ -1,5 +1,5 @@
 
-let cookie = "";
+let cookie = $.getval("CookieGYSJ");
 
 var $ = new Env('国语视界签到');
 
@@ -19,10 +19,10 @@ function getSign() {
 	$.get({
     url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx',
     headers: {
-      Cookie: cookie || $.getval("CookieGYSJ"),
+      Cookie: cookie,
     }
   }, function(error, response, data) {
-	  $.log('', `请求完成`)
+	  $.log('', `cookie： ${$.getval("cookie")}`)
     if (error && !data) {
       $.log(error);
       $.msg("国语视界", "签到请求失败 ‼️‼️", error)
