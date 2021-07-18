@@ -32,15 +32,16 @@ function GetCheckin() {
 					throw new Error(error); //如果请求失败, 例如无法联网, 则抛出一个异常
 				} else {
 					const body = JSON.parse(data); //解析响应体json并转化为对象
-					if (body.code == 0 && body.data) { //如果响应体为预期格式
-						user.ret = parseInt(body.data.ret); //把查询的积分赋值到全局变量user中
-                        user.msg = parseInt(body.data.msg);
-						console.log(`\ncode: ${body.data.ret}`); //打印日志
-                        console.log(`\msg: ${body.data.msg}`); //打印日志
-                        $.notify('几鸡签到', '', `签到了"${user.msg}"流量`);
-					} else { //否则抛出一个异常
-						throw new Error(body.msg || data);
-					}
+					console.log(`\ncode: ${data}`);
+					// if (body.code == 0 && body.data) { //如果响应体为预期格式
+					// 	user.ret = parseInt(body.data.ret); //把查询的积分赋值到全局变量user中
+                    //     user.msg = parseInt(body.data.msg);
+					// 	console.log(`\ncode: ${body.data.ret}`); //打印日志
+                    //     console.log(`\msg: ${body.data.msg}`); //打印日志
+                    //     $.notify('几鸡签到', '', `签到了"${user.msg}"流量`);
+					// } else { //否则抛出一个异常
+					// 	throw new Error(body.msg || data);
+					// }
 				}
 			} catch (e) { //接住try代码块中抛出的异常, 并打印日志
 				console.log(`\n查询积分: 失败\n出现错误: ${e.message}`);
