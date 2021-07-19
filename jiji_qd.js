@@ -27,6 +27,10 @@ function getCheckin() {
       $.msg("几鸡", "签到请求失败 ‼️‼️", error)
     } else {
 		$.log('', `${data}`)
+    $.log('', `headers ${response.headers}`)
+    $.log('', `statusCode ${response.statusCode}`)
+    $.log('', `status ${response.status}`)
+    $.log('', `body ${response.body}`)
 		$.msg("几鸡", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
     //   if (data.match(/(ÒÑÍê³É|\u606d\u559c\u60a8|��̳΢�š��ᰮ�ƽ�)/)) {
     //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
@@ -44,6 +48,7 @@ function getCheckin() {
   })
 }
 
+// https://raw.githubusercontent.com/chavyleung/scripts/master/Env.js
 function Env(name, opts) {
   class Http {
     constructor(env) {
@@ -367,22 +372,11 @@ function Env(name, opts) {
 
     post(opts, callback = () => {}) {
       const method = opts.method ? opts.method.toLocaleLowerCase() : 'post'
-
-	  $.log('', `method: ${method}`)
-
       // 如果指定了请求体, 但没指定`Content-Type`, 则自动生成
       if (opts.body && opts.headers && !opts.headers['Content-Type']) {
         opts.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-		$.log('', `Content-Type: 自动生成了`)
-      } else {
-		  opts.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-		  $.log('', `Content-Type: 未自动生成`)
-	  }
+      }
       if (opts.headers) delete opts.headers['Content-Length']
-
-	  $.log('', `Content-Type: ${opts.headers['Content-Type']}`)
-	  $.log('', `Cookie: ${opts.headers['Cookie']}`)
-
       if (this.isSurge() || this.isLoon()) {
         if (this.isSurge() && this.isNeedRewrite) {
           opts.headers = opts.headers || {}
