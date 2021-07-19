@@ -20,7 +20,6 @@ function getCheckin() {
     url: 'https://j05.space/user/checkin',
     headers: {
       'Cookie': cookie,
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     }
   }, function(error, response, data) {
     if (error && !data) {
