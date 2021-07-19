@@ -19,7 +19,8 @@ function getCheckin() {
 	$.post({
     url: 'https://j05.space/user/checkin',
     headers: {
-      Cookie: cookie,
+      'Cookie': cookie,
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     }
   }, function(error, response, data) {
     if (error && !data) {
@@ -48,7 +49,7 @@ function getCheckin() {
   })
 }
 
-// https://raw.githubusercontent.com/chavyleung/scripts/master/Env.js
+// https://github.com/chavyleung/scripts/blob/master/Env.js
 function Env(name, opts) {
   class Http {
     constructor(env) {
