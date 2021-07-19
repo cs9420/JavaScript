@@ -402,6 +402,7 @@ function Env(name, opts) {
           opts.opts = opts.opts || {}
           Object.assign(opts.opts, { hints: false })
         }
+        $.log('', `opts: ${opts.stringify}`)
         $task.fetch(opts).then(
           (resp) => {
             const { statusCode: status, statusCode, headers, body } = resp

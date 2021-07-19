@@ -35,7 +35,7 @@ function getCheckin() {
     //$.log('', `statusCode ${response.statusCode}`)
     //$.log('', `status ${response.status}`)
     //$.log('', `body ${response.body}`)
-		$.msg("几鸡", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
+		//$.msg("几鸡", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
     //   if (data.match(/(ÒÑÍê³É|\u606d\u559c\u60a8|��̳΢�š��ᰮ�ƽ�)/)) {
     //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
     //   } else if (data.match(/(ÄúÒÑ|\u4e0b\u671f\u518d\u6765|>��Ǹ������)/)) {
@@ -399,6 +399,7 @@ function Env(name, opts) {
           opts.opts = opts.opts || {}
           Object.assign(opts.opts, { hints: false })
         }
+        $.log('', `opts: ${opts.stringify}`)
         $task.fetch(opts).then(
           (resp) => {
             const { statusCode: status, statusCode, headers, body } = resp
