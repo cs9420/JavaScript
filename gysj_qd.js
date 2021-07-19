@@ -21,6 +21,8 @@ function getSign() {
 	$.post({
     url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx&formhash=5965e4ff&qdmode=1&todaysay=%E5%8A%A0%E6%B2%B9%E6%88%91%E6%98%AF%E6%9C%80%E6%A3%92%E7%9A%84&fastreply=0',
     headers: {
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Encoding': 'gzip, deflate, br',
       'Cookie': cookie,
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'Content-Length': '93',
@@ -33,10 +35,10 @@ function getSign() {
       $.msg("国语视界", "签到请求失败 ‼️‼️", error)
     } else {
 		$.log('', `${data}`)
-    $.log('', `headers ${response.headers}`)
-    $.log('', `statusCode ${response.statusCode}`)
-    $.log('', `status ${response.status}`)
-    $.log('', `body ${response.body}`)
+    //$.log('', `headers ${response.headers}`)
+    //$.log('', `statusCode ${response.statusCode}`)
+    //$.log('', `status ${response.status}`)
+    //$.log('', `body ${response.body}`)
     //   if (data.match(/(ÒÑÍê³É|\u606d\u559c\u60a8|��̳΢�š��ᰮ�ƽ�)/)) {
     //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
     //   } else if (data.match(/(ÄúÒÑ|\u4e0b\u671f\u518d\u6765|>��Ǹ������)/)) {

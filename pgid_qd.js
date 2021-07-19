@@ -20,8 +20,11 @@ function getCheckin() {
 	$.post({
     url: 'https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao',
     headers: {
+      'Accept': '*/*',
+      'Accept-Encoding': 'gzip, deflate, br',
       'Cookie': cookie,
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      'Content-Length': '19',
       'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
     }
   }, function(error, response, data) {
@@ -30,10 +33,10 @@ function getCheckin() {
       $.msg("苹果ID", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
-    $.log('', `headers ${response.headers}`)
-    $.log('', `statusCode ${response.statusCode}`)
-    $.log('', `status ${response.status}`)
-    $.log('', `body ${response.body}`)
+    //$.log('', `headers ${response.headers}`)
+    //$.log('', `statusCode ${response.statusCode}`)
+    //$.log('', `status ${response.status}`)
+    //$.log('', `body ${response.body}`)
 		$.msg("苹果ID", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
     //   if (data.match(/(ÒÑÍê³É|\u606d\u559c\u60a8|��̳΢�š��ᰮ�ƽ�)/)) {
     //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
