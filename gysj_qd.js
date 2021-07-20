@@ -19,19 +19,20 @@ getSign()
 
 function getSign() {
 	$.post({
-    url: 'https://cnlang.org/plugin.php?id=dsu_paulsign%3Asign&operation=qiandao&qdxq=kx&formhash=5965e4ff&qdmode=1&todaysay=%E5%8A%A0%E6%B2%B9%E6%88%91%E6%98%AF%E6%9C%80%E6%A3%92%E7%9A%84&fastreply=0',
+    url: 'https://cnlang.org/plugin.php?id=dsu_paulsign:sign&operation=qiandao&infloat=1&inajax=1&qdxq=kx',
     headers: {
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept': 'application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Accept-Encoding': 'gzip, deflate, br',
+      'Accept-Language': 'zh-cn',
+      'Connection': 'keep-alive',
       'Cookie': cookie,
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      'Content-Length': '93',
-      'Accept': 'text/html,application/xhtml+xml',
+      'Content-Type': 'application/x-www-form-urlencoded',
       'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
-    }
+    },
+    body: 'formhash=5965e4ff&qdmode=1&todaysay=%E5%8A%A0%E6%B2%B9%E6%88%91%E6%98%AF%E6%9C%80%E6%A3%92%E7%9A%84&fastreply=0'
   }, function(error, response, data) {
     if (error && !data) {
-      $.log(error);
+      $.log(error.error);
       $.msg("国语视界", "签到请求失败 ‼️‼️", error)
     } else {
 		$.log('', `${data}`)
