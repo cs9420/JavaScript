@@ -43,14 +43,20 @@ function getCheckin() {
   //   $.done();
   // })
 
-  const url = "https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao";
+  const url = "https://www.52appleid.com/wp-admin/admin-ajax.php";
   const method = "POST";
   const headers = {
-    "Cookie": cookie,
-    "Accept": "application/json, text/plain, */*",
-    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+    "Accept": "*/*",
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'zh-cn',
     "Connection": "keep-alive",
-    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "Cookie": cookie,
+    'Host': 'www.52appleid.com',
+    'Origin': 'https://www.52appleid.com',
+    'Referer': 'https://www.52appleid.com/game',
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+    'X-Requested-With': 'XMLHttpRequest'
   };
   const data = {"action": "user_qiandao"};
 
@@ -58,7 +64,7 @@ function getCheckin() {
       url: url,
       method: method, // Optional, default GET.
       headers: headers, // Optional.
-      //body: JSON.stringify(data) // Optional.
+      body: JSON.stringify(data) // Optional.
   };
 
   $task.fetch(myRequest).then(response => {
