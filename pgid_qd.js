@@ -16,16 +16,20 @@ let cookie = $.getval("CookiePGID");
 getCheckin()
 
 function getCheckin() {
-  $.log('', `${cookie}`)
 	$.post({
     url: 'https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao',
     headers: {
       'Accept': '*/*',
       'Accept-Encoding': 'gzip, deflate, br',
+      'Accept-Language': 'zh-cn',
+      'Connection': 'keep-alive',
       'Cookie': cookie,
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'Content-Length': '19',
-      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
+      'Host': 'www.52appleid.com',
+      'Origin': 'https://www.52appleid.com',
+      'Referer': 'https://www.52appleid.com/game',
+      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
     }
   }, function(error, response, data) {
     if (error && !data) {
@@ -33,22 +37,6 @@ function getCheckin() {
       $.msg("苹果ID", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
-    //$.log('', `headers ${response.headers}`)
-    //$.log('', `statusCode ${response.statusCode}`)
-    //$.log('', `status ${response.status}`)
-    //$.log('', `body ${response.body}`)
-		//$.msg("苹果ID", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
-    //   if (data.match(/(ÒÑÍê³É|\u606d\u559c\u60a8|��̳΢�š��ᰮ�ƽ�)/)) {
-    //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
-    //   } else if (data.match(/(ÄúÒÑ|\u4e0b\u671f\u518d\u6765|>��Ǹ������)/)) {
-    //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 已签过 ⚠️")
-    //   } else if (data.match(/(ÏÈµÇÂ¼|\u9700\u8981\u5148\u767b\u5f55|�Ҫ�ȵ�¼���ܼ�)/)) {
-    //     $.msg("吾爱破解", "", "签到失败, Cookie失效 ‼️‼️")
-    //   } else if (response.statusCode == 403) {
-    //     $.msg("吾爱破解", "", "服务器暂停签到 ⚠️")
-    //   } else {
-    //     $.msg("吾爱破解", "", "脚本待更新 ‼️‼️")
-    //   }
     }
     $.done();
   })
@@ -401,7 +389,6 @@ function Env(name, opts) {
           opts.opts = opts.opts || {}
           Object.assign(opts.opts, { hints: false })
         }
-        $.log('', `opts: ${$.toObj(opts)}`)
         $task.fetch(opts).then(
           (resp) => {
             const { statusCode: status, statusCode, headers, body } = resp
