@@ -40,10 +40,11 @@ function getCheckin() {
 
   $task.fetch(url).then((resp) => {
             $.log('', "成功？")
-          }
-        ).catch((err) => {
+          },
+          (err) => {
           $.log('', "失败?")
-        })
+        }
+        )
         $.done();
 }
 
