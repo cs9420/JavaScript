@@ -39,11 +39,12 @@ function getCheckin() {
   // })
 
   $task.fetch(url).then((resp) => {
-            $.log('', resp)
+            $.log('', "成功？")
           }
         ).catch((err) => {
-          $.log('', err)
+          $.log('', "失败?")
         })
+        $.done();
 }
 
 // https://github.com/chavyleung/scripts/blob/master/Env.js
