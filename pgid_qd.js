@@ -1,5 +1,5 @@
 
-//const $ = new Env('苹果账号签到');
+const $ = new Env('苹果账号签到');
 
 let cookie = $.getval("CookiePGID");
 
