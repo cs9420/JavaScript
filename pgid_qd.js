@@ -19,7 +19,7 @@ function getCheckin() {
 	$.post({
     url: 'https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao',
     headers: {
-      'Accept': '*/*',
+      'Accept': 'application/json, text/plain, */*',
       'Accept-Encoding': 'gzip, deflate, br',
       'Accept-Language': 'zh-cn',
       'Connection': 'keep-alive',
@@ -29,12 +29,13 @@ function getCheckin() {
       'Host': 'www.52appleid.com',
       'Origin': 'https://www.52appleid.com',
       'Referer': 'https://www.52appleid.com/game',
+      'X-Requested-With': 'XMLHttpRequest',
       'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
     }
   }, function(error, response, data) {
     if (error && !data) {
       $.log(error);
-      $.msg("苹果ID", "签到请求失败 ‼️‼️", error.stringify)
+      $.msg("", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
     }
