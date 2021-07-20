@@ -58,13 +58,13 @@ function getCheckin() {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
     'X-Requested-With': 'XMLHttpRequest'
   };
-  const data = {"action": "user_qiandao"};
+  const data = "action=user_qiandao";
 
   const myRequest = {
       url: url,
       method: method, // Optional, default GET.
       headers: headers, // Optional.
-      body: JSON.stringify(data) // Optional.
+      body: data // Optional.
   };
 
   $task.fetch(myRequest).then(response => {
