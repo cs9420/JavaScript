@@ -23,7 +23,7 @@ function getCheckin() {
       'Accept-Encoding': 'gzip, deflate, br',
       'Accept-Language': 'zh-cn',
       'Connection': 'keep-alive',
-      'Cookie': cookie,
+      //'Cookie': cookie,
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       'Content-Length': '19',
       'Host': 'www.52appleid.com',
@@ -34,7 +34,6 @@ function getCheckin() {
     }
   }, function(error, response, data) {
     if (error && !data) {
-      //$.log(error);
       $.msg("", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
