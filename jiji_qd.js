@@ -28,17 +28,17 @@ function getCheckin() {
   }, function(error, response, data) {
     if (error && !data) {
       $.log(error);
-      $.msg("几鸡", "签到请求失败 ‼️‼️", error)
+      $.msg("", "签到请求失败 ‼️‼️", error)
     } else {
 		  let jsonParseStr = JSON.parse(data)
       if (jsonParseStr.ret == 1) {
         let fromatJsonStr = unescape(data.split("/").join("%"))
         let jsonParse = JSON.parse(fromatJsonStr)
-        $.msg("几鸡", jsonParse.msg + ", 共有：" + jsonParse.traffic)
+        $.msg("", jsonParse.msg + ", 共有：" + jsonParse.traffic)
       } else if (jsonParseStr.ret == 500) {
         let fromatJsonStr = unescape(data.split("/").join("%"))
         let jsonParse = JSON.parse(fromatJsonStr)
-        $.msg("几鸡", jsonParse.msg)
+        $.msg("", jsonParse.msg)
       }
     }
     $.done();
