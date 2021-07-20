@@ -1,5 +1,5 @@
 
-const $ = new Env('苹果账号签到');
+//const $ = new Env('苹果账号签到');
 
 let cookie = $.getval("CookiePGID");
 
@@ -13,50 +13,22 @@ let cookie = $.getval("CookiePGID");
 // 	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
 // })();
 
-const url = "https://www.52appleid.com/wp-admin/admin-ajax.php";
-const method = "POST";
-const headers = {
-  "Cookie": cookie,
-  "Accept": "application/json, text/plain, */*",
-  "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
-  "Connection": "keep-alive",
-  "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
-};
-const data = {"action": "user_qiandao"};
 
-const myRequest = {
-    url: url,
-    method: method, // Optional, default GET.
-    headers: headers, // Optional.
-    body: JSON.stringify(data) // Optional.
-};
-
-$task.fetch(myRequest).then(response => {
-    // response.statusCode, response.headers, response.body
-    console.log(response.body);
-    $notify("Title", "Subtitle", response.body); // Success!
-    $done();
-}, reason => {
-    // reason.error
-    $notify("Title", "Subtitle", reason.error); // Error!
-    $done();
-});
-
-//getCheckin()
+getCheckin()
 
 function getCheckin() {
-  let url = {
-    url: `https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao`,
-    headers: { Cookie: cookie }
-  }
-  url.headers['Accept'] = `application/json, text/plain, */*`
-  url.headers['Accept-Language'] = `zh-cn`
-  url.headers['Host'] = `www.52appleid.com`
-  url.headers['User-Agent'] = `Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1`
-  url.headers['Accept-Encoding'] = `gzip, deflate, br`
-  url.headers['Connection'] = `keep-alive`
-  url.headers['Content-Type'] = `application/x-www-form-urlencoded; charset=UTF-8`
-  url.method = 'post'
+  //let url = {
+  //  url: `https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao`,
+  //  headers: { Cookie: cookie }
+  //}
+  //url.headers['Accept'] = `application/json, text/plain, */*`
+  //url.headers['Accept-Language'] = `zh-cn`
+  //url.headers['Host'] = `www.52appleid.com`
+  //url.headers['User-Agent'] = `Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1`
+  //url.headers['Accept-Encoding'] = `gzip, deflate, br`
+  //url.headers['Connection'] = `keep-alive`
+  //url.headers['Content-Type'] = `application/x-www-form-urlencoded; charset=UTF-8`
+  //url.method = 'post'
 
 	// $.post(url, (error, response, data) => {
   //   $.log('', `error ${error}`)
@@ -71,13 +43,34 @@ function getCheckin() {
   //   $.done();
   // })
 
-  $task.fetch(url).then((resp) => {
-            $.log('', "成功？")
-          },
-          (err) => {
-          $.log('', "失败?")
-        })
-        $.done();
+  const url = "https://www.52appleid.com/wp-admin/admin-ajax.php";
+  const method = "POST";
+  const headers = {
+    "Cookie": cookie,
+    "Accept": "application/json, text/plain, */*",
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+    "Connection": "keep-alive",
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+  };
+  const data = {"action": "user_qiandao"};
+
+  const myRequest = {
+      url: url,
+      method: method, // Optional, default GET.
+      headers: headers, // Optional.
+      body: JSON.stringify(data) // Optional.
+  };
+
+  $task.fetch(myRequest).then(response => {
+      // response.statusCode, response.headers, response.body
+      console.log(response.body);
+      $notify("Title", "Subtitle", response.body); // Success!
+      $done();
+  }, reason => {
+      // reason.error
+      $notify("Title", "Subtitle", reason.error); // Error!
+      $done();
+  });
 }
 
 // https://github.com/chavyleung/scripts/blob/master/Env.js
