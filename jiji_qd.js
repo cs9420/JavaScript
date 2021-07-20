@@ -30,23 +30,13 @@ function getCheckin() {
       $.log(error);
       $.msg("几鸡", "签到请求失败 ‼️‼️", error)
     } else {
-		$.log('', `${data}`)
-    //$.log('', `headers ${response.headers}`)
-    //$.log('', `statusCode ${response.statusCode}`)
-    //$.log('', `status ${response.status}`)
-    //$.log('', `body ${response.body}`)
-		//$.msg("几鸡", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
-    //   if (data.match(/(ÒÑÍê³É|\u606d\u559c\u60a8|��̳΢�š��ᰮ�ƽ�)/)) {
-    //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
-    //   } else if (data.match(/(ÄúÒÑ|\u4e0b\u671f\u518d\u6765|>��Ǹ������)/)) {
-    //     $.msg("吾爱破解", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 已签过 ⚠️")
-    //   } else if (data.match(/(ÏÈµÇÂ¼|\u9700\u8981\u5148\u767b\u5f55|�Ҫ�ȵ�¼���ܼ�)/)) {
-    //     $.msg("吾爱破解", "", "签到失败, Cookie失效 ‼️‼️")
-    //   } else if (response.statusCode == 403) {
-    //     $.msg("吾爱破解", "", "服务器暂停签到 ⚠️")
-    //   } else {
-    //     $.msg("吾爱破解", "", "脚本待更新 ‼️‼️")
-    //   }
+		  let jsonParse = JSON.parse(data)
+      if (data.match(/(\u83b7\u5f97\u4e86)/)) {
+        $.msg("几鸡", jsonParse.msg + ", " + jsonParse.traffic)
+      } else {
+        $.msg("几鸡", data)
+      }
+      
     }
     $.done();
   })
