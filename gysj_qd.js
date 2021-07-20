@@ -19,7 +19,7 @@ getSign()
 
 function getSign() {
 	$.post({
-    url: 'https://cnlang.org/plugin.php?id=dsu_paulsign:sign&operation=qiandao&infloat=1&inajax=1&qdxq=kx',
+    url: 'https://cnlang.org/plugin.php?id=dsu_paulsign:sign&operation=qiandao&infloat=1&inajax=1',
     headers: {
       'Accept': 'application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
       'Accept-Encoding': 'gzip, deflate, br',
@@ -29,7 +29,7 @@ function getSign() {
       'Content-Type': 'application/x-www-form-urlencoded',
       'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
     },
-    body: 'formhash=5965e4ff&qdmode=1&todaysay=%E5%8A%A0%E6%B2%B9%E6%88%91%E6%98%AF%E6%9C%80%E6%A3%92%E7%9A%84&fastreply=0'
+    body: 'formhash=5965e4ff&qdmode=1&todaysay=%E5%8A%A0%E6%B2%B9%E5%95%8A%E5%8A%A0%E6%B2%B9%E5%95%8A%E6%88%91%E6%98%AF%E6%9C%80%E6%A3%92%E7%9A%84&fastreply=0&qdxq=kx'
   }, function(error, response, data) {
     if (error && !data) {
       $.log(error.error);
