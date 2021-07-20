@@ -30,7 +30,7 @@ function getCheckin() {
 
 	$.get(url, (error, response, data) => {
     if (error && !data) {
-      $.log('', '还是不好用2')
+      $.log('', '还是不好用3')
       $.msg("", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
