@@ -28,24 +28,27 @@ function getCheckin() {
   url.headers['Connection'] = `keep-alive`
   url.headers['Content-Type'] = `application/x-www-form-urlencoded; charset=UTF-8`
 
-	// $.get(url, (error, response, data) => {
-  //   if (error && !data) {
-  //     $.log('', '还是不好用3')
-  //     $.msg("", "签到请求失败 ‼️‼️", error.stringify)
-  //   } else {
-	// 	$.log('', `${data}`)
-  //   }
-  //   $.done();
-  // })
+	$.get(url, (error, response, data) => {
+    $.log('', `error ${error}`)
+    $.log('', `response ${response}`)
+    $.log('', `data ${data}`)
+    if (error && !data) {
+      $.log('', '还是不好用5')
+      $.msg("", "签到请求失败 ‼️‼️", error.stringify)
+    } else {
+		$.log('', `${data}`)
+    }
+    $.done();
+  })
 
-  $task.fetch(url).then((resp) => {
-            $.log('', "成功？")
-          },
-          (err) => {
-          $.log('', "失败?")
-        }
-        )
-        $.done();
+  // $task.fetch(url).then((resp) => {
+  //           $.log('', "成功？")
+  //         },
+  //         (err) => {
+  //         $.log('', "失败?")
+  //       }
+  //       )
+  //       $.done();
 }
 
 // https://github.com/chavyleung/scripts/blob/master/Env.js
