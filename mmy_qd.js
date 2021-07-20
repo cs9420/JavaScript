@@ -16,7 +16,6 @@ var $ = new Env('慢慢游社区签到');
 getManmanyou()
 
 function getManmanyou() {
-  $.log('', `${cookie}`)
 	$.post({
     url: 'https://www.manmanyou.net/plugin.php?id=dsu_paulsign:sign&operation=qiandao&infloat=1&sign_as=1&inajax=1&formhash=c22e1d56&qdxq=kx&qdmode=3&todaysay=&fastreply=0',
     headers: {
