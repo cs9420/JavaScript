@@ -16,25 +16,21 @@ let cookie = $.getval("CookiePGID");
 getCheckin()
 
 function getCheckin() {
-	$.post({
+  let url = {
     url: 'https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao',
-    headers: {
-      'Accept': 'application/json, text/plain, */*',
-      'Accept-Encoding': 'gzip, deflate, br',
-      'Accept-Language': 'zh-cn',
-      'Connection': 'keep-alive',
-      'Cookie': cookie,
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      'Content-Length': '19',
-      'Host': 'www.52appleid.com',
-      'Origin': 'https://www.52appleid.com',
-      'Referer': 'https://www.52appleid.com/game',
-      'X-Requested-With': 'XMLHttpRequest',
-      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
-    }
-  }, function(error, response, data) {
+    headers: { Cookie: cookie }
+  }
+  url.headers['Accept'] = `application/json, text/plain, */*`
+  url.headers['Accept-Language'] = `zh-cn`
+  url.headers['Host'] = `www.52appleid.com`
+  url.headers['User-Agent'] = `Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1`
+  url.headers['Accept-Encoding'] = `gzip, deflate, br`
+  url.headers['Connection'] = `keep-alive`
+  url.headers['Content-Type'] = `application/x-www-form-urlencoded; charset=UTF-8`
+  
+	$.post(url, (error, response, data) => {
     if (error && !data) {
-      $.log('', '还是不好用')
+      $.log('', '还是不好用2')
       $.msg("", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
