@@ -34,7 +34,7 @@ function getCheckin() {
     }
   }, function(error, response, data) {
     if (error && !data) {
-      $.log(error);
+      //$.log(error);
       $.msg("", "签到请求失败 ‼️‼️", error.stringify)
     } else {
 		$.log('', `${data}`)
