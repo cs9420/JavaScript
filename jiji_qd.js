@@ -30,13 +30,16 @@ function getCheckin() {
       $.log(error);
       $.msg("几鸡", "签到请求失败 ‼️‼️", error)
     } else {
-		  let jsonParse = JSON.parse(data)
-      if (data.match(/(\u83b7\u5f97\u4e86)/)) {
-        $.msg("几鸡", jsonParse.msg + ", " + jsonParse.traffic)
-      } else {
-        $.msg("几鸡", data)
+		  let jsonParseStr = JSON.parse(data)
+      if (jsonParseStr.ret == 1) {
+        let fromatJsonStr = unescape(data.split("/").join("%"))
+        let jsonParse = JSON.parse(fromatJsonStr)
+        $.msg("几鸡", jsonParse.msg + ", 共有：" + jsonParse.traffic)
+      } else if (jsonParseStr.ret == 500) {
+        let fromatJsonStr = unescape(data.split("/").join("%"))
+        let jsonParse = JSON.parse(fromatJsonStr)
+        $.msg("几鸡", jsonParse.msg)
       }
-      
     }
     $.done();
   })
@@ -389,7 +392,6 @@ function Env(name, opts) {
           opts.opts = opts.opts || {}
           Object.assign(opts.opts, { hints: false })
         }
-        $.log('', `opts: ${$.toObj(opts)}`)
         $task.fetch(opts).then(
           (resp) => {
             const { statusCode: status, statusCode, headers, body } = resp
