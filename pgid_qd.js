@@ -43,7 +43,7 @@ function getCheckin() {
   //   $.done();
   // })
 
-  const url = "https://www.52appleid.com/wp-admin/admin-ajax.php";
+  const url = "https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao";
   const method = "POST";
   const headers = {
     "Cookie": cookie,
@@ -58,7 +58,7 @@ function getCheckin() {
       url: url,
       method: method, // Optional, default GET.
       headers: headers, // Optional.
-      body: JSON.stringify(data) // Optional.
+      //body: JSON.stringify(data) // Optional.
   };
 
   $task.fetch(myRequest).then(response => {
