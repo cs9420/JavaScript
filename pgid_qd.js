@@ -17,7 +17,7 @@ getCheckin()
 
 function getCheckin() {
   let url = {
-    url: 'https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao',
+    url: `https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao`,
     headers: { Cookie: cookie }
   }
   url.headers['Accept'] = `application/json, text/plain, */*`
@@ -27,8 +27,8 @@ function getCheckin() {
   url.headers['Accept-Encoding'] = `gzip, deflate, br`
   url.headers['Connection'] = `keep-alive`
   url.headers['Content-Type'] = `application/x-www-form-urlencoded; charset=UTF-8`
-  
-	$.post(url, (error, response, data) => {
+
+	$.get(url, (error, response, data) => {
     if (error && !data) {
       $.log('', '还是不好用2')
       $.msg("", "签到请求失败 ‼️‼️", error.stringify)
