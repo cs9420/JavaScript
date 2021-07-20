@@ -13,7 +13,36 @@ let cookie = $.getval("CookiePGID");
 // 	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
 // })();
 
-getCheckin()
+const url = "https://www.52appleid.com/wp-admin/admin-ajax.php";
+const method = "POST";
+const headers = {
+  "Cookie": cookie,
+  "Accept": "application/json, text/plain, */*",
+  "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+  "Connection": "keep-alive",
+  "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+};
+const data = {"action": "user_qiandao"};
+
+const myRequest = {
+    url: url,
+    method: method, // Optional, default GET.
+    headers: headers, // Optional.
+    body: JSON.stringify(data) // Optional.
+};
+
+$task.fetch(myRequest).then(response => {
+    // response.statusCode, response.headers, response.body
+    console.log(response.body);
+    $notify("Title", "Subtitle", response.body); // Success!
+    $done();
+}, reason => {
+    // reason.error
+    $notify("Title", "Subtitle", reason.error); // Error!
+    $done();
+});
+
+//getCheckin()
 
 function getCheckin() {
   let url = {
