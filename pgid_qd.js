@@ -1,47 +1,10 @@
-
 const $ = new Env('苹果账号签到');
 
 let cookie = $.getval("CookiePGID");
 
-// (async function() { // 立即运行的匿名异步函数
-// 	// 使用await关键字声明, 表示以同步方式执行异步函数, 可以简单理解为顺序执行
-// 	await Promise.all([ //该方法用于将多个实例包装成一个新的实例, 可以简单理解为同时调用函数, 以进一步提高执行速度
-// 		getSign(), 
-// 		//ListProduct() //查询商品函数
-// 	]);
-// 	//await ExchangeProduct(); //上面的查询都完成后, 则执行抢购
-// 	$.done(); //抢购完成后调用Surge、QX内部特有的函数, 用于退出脚本执行
-// })();
-
-
 getCheckin()
 
 function getCheckin() {
-  //let url = {
-  //  url: `https://www.52appleid.com/wp-admin/admin-ajax.php?action=user_qiandao`,
-  //  headers: { Cookie: cookie }
-  //}
-  //url.headers['Accept'] = `application/json, text/plain, */*`
-  //url.headers['Accept-Language'] = `zh-cn`
-  //url.headers['Host'] = `www.52appleid.com`
-  //url.headers['User-Agent'] = `Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1`
-  //url.headers['Accept-Encoding'] = `gzip, deflate, br`
-  //url.headers['Connection'] = `keep-alive`
-  //url.headers['Content-Type'] = `application/x-www-form-urlencoded; charset=UTF-8`
-  //url.method = 'post'
-
-	// $.post(url, (error, response, data) => {
-  //   $.log('', `error ${error}`)
-  //   $.log('', `response ${response}`)
-  //   $.log('', `data ${data}`)
-  //   if (error && !data) {
-  //     $.log('', '还是不好用5')
-  //     $.msg("", "签到请求失败 ‼️‼️", error.stringify)
-  //   } else {
-	// 	$.log('', `${data}`)
-  //   }
-  //   $.done();
-  // })
 
   const url = "https://www.52appleid.com/wp-admin/admin-ajax.php";
   const method = "POST";
@@ -66,6 +29,16 @@ function getCheckin() {
       headers: headers, // Optional.
       body: data // Optional.
   };
+
+  $.post(myRequest, (error, response, data) => {
+  if (error && !data) {
+    $.log('', `${error.error}`)
+    $.msg("", "签到请求失败 ‼️‼️", error.error)
+  } else {
+	  $.log('', `${data}`)
+  }
+  $.done();
+})
 
   $task.fetch(myRequest).then(response => {
       // response.statusCode, response.headers, response.body
