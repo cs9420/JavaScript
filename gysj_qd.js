@@ -11,7 +11,7 @@ function getSign() {
   const headers = {
   'Origin' : `https://cnlang.org`,
   'Cookie' : cookie,
-  'Accept' : `application/json,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8`,
+  'Accept' : `text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8`,
   'Content-Type' : `application/x-www-form-urlencoded`,
   'Referer' : `https://cnlang.org/dsu_paulsign-sign.html`,
   'Host' : `cnlang.org`,
